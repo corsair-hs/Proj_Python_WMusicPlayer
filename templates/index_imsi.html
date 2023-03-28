@@ -33,28 +33,26 @@
             margin: 0;
         }
 
-        .totalWrap {
+        .mytitle {
             width: 100vw;
             height: 100vh;
-            background-color: green;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+
             background-image: linear-gradient(0deg,
                     rgba(0, 0, 0, 0.5),
                     rgba(0, 0, 0, 0.5)),
                 url("https://i.pinimg.com/originals/b5/f5/ac/b5f5aca4c3958e2b8a3424ed11bb2dff.jpg");
             background-position: center 30%;
             background-size: cover;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .cus-hr {
-            border: solid 1px black;
-        }
-
-        .cus-select {
-            width: 250px;
+        #weatherQuestion {
+            font-size: 2.5em;
+            margin-bottom: 40px;
         }
 
         #weatherWrap img {
@@ -66,16 +64,16 @@
             cursor: pointer;
         }
         #imgSunny:hover {
-            content: url('./img/color-sunny.png');
+            content: url('../static/src/img/color-sunny.png');
         }
         #imgCloudy:hover {
-            content: url('./img/color-cloudy.png');
+            content: url('../static/src/img/color-cloudy.png');
         }
         #imgRainy:hover {
-            content: url('./img/color-rainy.png');
+            content: url('../static/src/img/color-rainy.png');
         }
         #imgSnow:hover {
-            content: url('./img/color-snow.png');
+            content: url('../static/src/img/color-snow.png');
         }
         #weatherBottom {
             width: 100%;
@@ -84,27 +82,53 @@
     </style>
 
     <script>
-
+        function mytitleEdit() {
+            $('div.mytitle').css('height', '350px');
+            $('p#weatherQuestion').css('font-size', '1.5em')
+            $('p#weatherQuestion').css('margin-bottom', '20px')
+            $('div#weatherWrap > img').css('width', '80px')
+            $('div#weatherBottom').hide();
+        }
+        function weatherImgToGray() {
+            $('#imgSunny').css('content', "url('../static/src/img/gray-sunny.png')")
+            $('#imgCloudy').css('content', "url('../static/src/img/gray-cloudy.png')")
+            $('#imgRainy').css('content', "url('../static/src/img/gray-rainy.png')")
+            $('#imgSnow').css('content', "url('../static/src/img/gray-snow.png')")
+        }
+        function sunnyClick() {
+            mytitleEdit();
+            weatherImgToGray();
+            $('#imgSunny').css('content', "url('../static/src/img/color-sunny.png')")
+        }
+        function cloudyClick() {
+            mytitleEdit();
+            weatherImgToGray();
+            $('#imgCloudy').css('content', "url('../static/src/img/color-cloudy.png')")
+        }
+        function rainyClick() {
+            mytitleEdit();
+            weatherImgToGray();
+            $('#imgRainy').css('content', "url('../static/src/img/color-rainy.png')")
+        }
+        function snowClick() {
+            mytitleEdit();
+            weatherImgToGray();
+            $('#imgSnow').css('content', "url('../static/src/img/color-snow.png')")
+        }
     </script>
 </head>
 
 <body>
-    <div class="totalWrap">
-        <p class="text-light h1 mb-5">당신 마음 속 날씨는 어떠한가요?</p>
-        <!-- <hr class="border border-secondary-emphasis border-1 opacity-75 w-50"> -->
-        <!-- <select class="form-select cus-select mt-3" aria-label="Default select example">
-            <option selected>맑음</option>
-            <option value="1">흐림</option>
-            <option value="2">비</option>
-            <option value="3">눈</option>
-          </select> -->
+    <div class="mytitle">
+        <p id="weatherQuestion" class="text-light">당신 마음 속 날씨는 어떠한가요?</p>
         <div id="weatherWrap">
-            <img src="./img/gray-sunny.png" id="imgSunny">
-            <img src="./img/gray-cloudy.png" id="imgCloudy">
-            <img src="./img/gray-rainy.png" id="imgRainy">
-            <img src="./img/gray-snow.png" id="imgSnow">
+            <img src="../static/src/img/gray-sunny.png" id="imgSunny" onclick="sunnyClick()">
+            <img src="../static/src/img/gray-cloudy.png" id="imgCloudy" onclick="cloudyClick()">
+            <img src="../static/src/img/gray-rainy.png" id="imgRainy" onclick="rainyClick()">
+            <img src="../static/src/img/gray-snow.png" id="imgSnow" onclick="snowClick()">
         </div>
         <div id="weatherBottom"></div>
+        <button onclick="open_box()">음악 등록하기</button>
     </div>
 </body>
 
