@@ -113,6 +113,30 @@ def mCmt_delete():
     db.musicCmt.delete_one(doc)
     return jsonify({'msg': '삭제 완료!'})
 
+# music comment Update - POST Request
+@app.route("/mCmt_update_POST", methods=["POST"])
+def mCmt_update():
+    # ytbId_receive = request.form['ytbId_give']
+    nickOld_receive = request.form['nickOld_give']
+    commentOld_receive = request.form['commentOld_give']
+    nickNew_receive = request.form['nickNew_give']
+    commentNew_receive = request.form['commentNew_give']
+
+    docOld = {
+        'nick' : nickOld_receive,
+        'comment' : commentOld_receive
+    }
+
+    docNew = { '$set' : {
+        'nick' : nickNew_receive,
+        'comment' : commentNew_receive
+        }
+    }
+
+    # 지우기
+    db.musicCmt.update_one(docOld, docNew)
+    return jsonify({'msg': '수정 완료!'})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
