@@ -22,7 +22,7 @@ function mCmt_insert() {
 
 function mCmt_select() {
     const ytbIdLabel = $('#ytbIdLabel').text();
-    console.log(ytbIdLabel);
+    // console.log(ytbIdLabel);
     fetch('/mCmt_select_GET').then((res) => res.json()).then((data) => {
         let rows = data['result']
         $("#comment-list").empty()
@@ -30,7 +30,7 @@ function mCmt_select() {
             let ytbId = a['ytbId']
             let nick = a['nick']
             let comment = a['comment']
-            console.log(ytbId);
+            // console.log(ytbId);
             if (ytbId === ytbIdLabel) {
                 let temp_html = `<div class="card">
                                             <div class="card-body">
