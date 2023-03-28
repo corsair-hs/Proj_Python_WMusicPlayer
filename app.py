@@ -87,11 +87,9 @@ def mCmt_insert():
         'comment' : comment_receive
     }
     db.musicCmt.insert_one(doc)
-
     return jsonify({'msg': '저장 완료!'})
 
-
-# music comment List - GET Request
+# music comment Select - GET Request
 @app.route("/mCmt_select_GET", methods=["GET"])
 def mList_select():
     comment_data = list(db.musicCmt.find({},{'_id':False}))
@@ -133,7 +131,7 @@ def mCmt_update():
         }
     }
 
-    # 지우기
+    # 수정하기
     db.musicCmt.update_one(docOld, docNew)
     return jsonify({'msg': '수정 완료!'})
 
