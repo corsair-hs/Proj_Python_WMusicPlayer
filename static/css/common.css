@@ -1,0 +1,75 @@
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.mytitle {
+    width: 100vw;
+    height: 100vh;
+
+    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.pixabay.com/photo/2016/03/27/07/32/clouds-1282314_960_720.jpg'); */
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url("https://i.pinimg.com/originals/b5/f5/ac/b5f5aca4c3958e2b8a3424ed11bb2dff.jpg");
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.mytitle>button {
+    width: 150px;
+    height: 40px;
+
+    background-color: transparent;
+    color: white;
+
+    border-radius: 50px;
+    border: 1px solid white;
+
+    margin-top: 30px;
+}
+
+.mytitle>button:hover {
+    border: 2px solid white;
+}
+
+#weatherQuestion {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+#weatherWrap img {
+    width: 100px;
+    height: auto;
+    margin: 0 10px;
+}
+
+#weatherWrap img:hover {
+    cursor: pointer;
+}
+
+#imgSunny:hover {
+    content: url('../src/img/color-sunny.png');
+}
+
+#imgCloudy:hover {
+    content: url('../src/img/color-cloudy.png');
+}
+
+#imgRainy:hover {
+    content: url('../src/img/color-rainy.png');
+}
+
+#imgSnow:hover {
+    content: url('../src/img/color-snow.png');
+}
+
+#weatherBottom {
+    width: 100%;
+    height: 350px;
+}

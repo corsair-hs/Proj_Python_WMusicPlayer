@@ -19,264 +19,16 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
+    <link href="../static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/mCmt.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/mList.css" rel="stylesheet" type="text/css">
+
+    <script src="../static/js/mList-front.js"></script>
+    <script src="../static/js/mList-back.js"></script>
+    <script src="../static/js/mCmt-front.js"></script>
+    <script src="../static/js/mCmt-back.js"></script>
+
     <title>Weather Music Play List</title>
-
-    <style>
-        * {
-            font-family: 'Gowun Dodum', sans-serif;
-        }
-
-        .mytitle {
-            width: 100vw;
-            height: 100vh;
-
-            /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.pixabay.com/photo/2016/03/27/07/32/clouds-1282314_960_720.jpg'); */
-            background-image: linear-gradient(0deg,
-                    rgba(0, 0, 0, 0.5),
-                    rgba(0, 0, 0, 0.5)),
-                url("https://i.pinimg.com/originals/b5/f5/ac/b5f5aca4c3958e2b8a3424ed11bb2dff.jpg");
-            background-position: center;
-            background-size: cover;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mytitle>button {
-            width: 150px;
-            height: 40px;
-
-            background-color: transparent;
-            color: white;
-
-            border-radius: 50px;
-            border: 1px solid white;
-
-            margin-top: 30px;
-        }
-
-        .mytitle>button:hover {
-            border: 2px solid white;
-        }
-
-        #weatherQuestion {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-        }
-
-        #weatherWrap img {
-            width: 100px;
-            height: auto;
-            margin: 0 10px;
-        }
-
-        #weatherWrap img:hover {
-            cursor: pointer;
-        }
-
-        #imgSunny:hover {
-            content: url('../static/src/img/color-sunny.png');
-        }
-
-        #imgCloudy:hover {
-            content: url('../static/src/img/color-cloudy.png');
-        }
-
-        #imgRainy:hover {
-            content: url('../static/src/img/color-rainy.png');
-        }
-
-        #imgSnow:hover {
-            content: url('../static/src/img/color-snow.png');
-        }
-
-        #weatherBottom {
-            width: 100%;
-            height: 350px;
-        }
-
-        #weatherLabel {
-            visibility: hidden;
-        }
-
-        .mycomment {
-            color: gray;
-        }
-
-        .mycards {
-            margin: 20px auto 0px auto;
-            width: 95%;
-            max-width: 1200px;
-        }
-
-        .mypost {
-            width: 95%;
-            max-width: 500px;
-            margin: 20px auto 0px auto;
-            padding: 20px;
-            box-shadow: 0px 0px 3px 0px gray;
-
-            display: none;
-        }
-
-        .mybtns {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-
-            margin-top: 20px;
-        }
-
-        .mybtns>button {
-            margin-right: 10px;
-        }
-
-        .ytbId {
-            visibility: hidden;
-            font-size: 1px;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-
-    <script>
-        $(document).ready(function () {
-            // mList_select();
-            hidebtnMusicInsert();
-        });
-
-        function mytitleEdit() {
-            $('div.mytitle').css('height', '350px');
-            $('p#weatherQuestion').css('font-size', '1.5em')
-            $('p#weatherQuestion').css('margin-bottom', '20px')
-            $('div#weatherWrap > img').css('width', '80px')
-            $('div#weatherBottom').hide();
-            showbtnMusicInsert()
-        }
-        function weatherImgToGray() {
-            $('#imgSunny').css('content', "url('../static/src/img/gray-sunny.png')")
-            $('#imgCloudy').css('content', "url('../static/src/img/gray-cloudy.png')")
-            $('#imgRainy').css('content', "url('../static/src/img/gray-rainy.png')")
-            $('#imgSnow').css('content', "url('../static/src/img/gray-snow.png')")
-        }
-        function sunnyClick() {
-            mytitleEdit();
-            weatherImgToGray();
-            $('#imgSunny').css('content', "url('../static/src/img/color-sunny.png')");
-            mList_select('sunny');
-            $('#weatherLabel').text('sunny');
-        }
-        function cloudyClick() {
-            mytitleEdit();
-            weatherImgToGray();
-            $('#imgCloudy').css('content', "url('../static/src/img/color-cloudy.png')");
-            mList_select('cloudy');
-            $('#weatherLabel').text('cloudy');
-        }
-        function rainyClick() {
-            mytitleEdit();
-            weatherImgToGray();
-            $('#imgRainy').css('content', "url('../static/src/img/color-rainy.png')");
-            mList_select('rainy');
-            $('#weatherLabel').text('rainy');
-        }
-        function snowClick() {
-            mytitleEdit();
-            weatherImgToGray();
-            $('#imgSnow').css('content', "url('../static/src/img/color-snow.png')");
-            mList_select('snow');
-            $('#weatherLabel').text('snow');
-        }
-
-        function showbtnMusicInsert() {
-            $('#btnMusicInsert').show();
-        }
-
-        function hidebtnMusicInsert() {
-            $('#btnMusicInsert').hide();
-        }
-
-        function open_box() {
-            $('#post-box').show()
-        }
-
-        function close_box() {
-            $('#post-box').hide()
-        }
-
-        function mList_select(imgValue) {
-            const _imgValue = imgValue;
-            fetch('/mList_select_GET').then((res) => res.json()).then((data) => {
-                let rows = data['result']
-                $("#cards-box").empty()
-                rows.forEach((a) => {
-                    let weather = a["weather"]
-                    let name = a["name"]
-                    let url = a["url"]
-                    let title = a["title"]
-                    let desc = a["desc"]
-                    let thumb = a['thumb']
-                    let ytbId = a['ytbId']
-
-                    if (weather === _imgValue) {
-                        let temp_html = `<div class="col">
-                                                <div class="card h-100">
-                                                    <img src="${thumb}"
-                                                        class="card-img-top">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">${title}</h5>
-                                                        <p class="card-text">${desc}</p>
-                                                        <p class="card-text ytbId">${ytbId}</p>
-                                                        <p class="mycomment">${name}</p>
-                                                        <button type="button" onclick="update_music(this)" class="btn btn-outline-dark btn-sm">수정</button>
-                                                        <button type="button" onclick="mList_delete(this)" class="btn btn-outline-dark btn-sm">삭제</button>
-                                                    </div>
-                                                </div>
-                                            </div>`
-                        $("#cards-box").append(temp_html);
-                    }
-                })
-
-            });
-
-        }
-
-        function mList_delete(button) {
-            let row = $(button).closest('div.card-body')
-            let ytbId = row.find('p:eq(1)').text()
-            // console.log(ytbId)
-
-            let formData = new FormData();
-            formData.append("ytbId_give", ytbId);
-            fetch('/mList_delete_POST', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
-                alert(data["msg"]);
-                window.location.reload();
-            });
-        };
-
-        function mList_insert() {
-            let weather = $("#weatherLabel").text();
-            let name = $("#name").val();
-            let url = $("#url").val();
-            let desc = $("#desc").val();
-
-
-            let formData = new FormData();
-            formData.append("weather_give", weather)
-            formData.append("name_give", name)
-            formData.append("url_give", url)
-            formData.append("desc_give", desc)
-
-            fetch('/mList_insert_POST', { method: "POST", body: formData, }).then((response) => response.json()).then((data) => {
-                alert(data["msg"]);
-                window.location.reload();
-            });
-
-        }
-    </script>
 </head>
 
 <body>
@@ -303,12 +55,12 @@
         </div>
         <div class="form-floating mb-3">
             <input id="desc" type="text" class="form-control" placeholder="">
-            <label>설명</label>
+            <label>해시태그 (공백으로 구분합니다.)</label>
         </div>
         
         <label id="weatherLabel"></label>
         <div class="mybtns">
-            <button onclick="mList_insert()" type="button" class="btn btn-dark">기록하기</button>
+            <button onclick="mList_insert()" type="button" class="btn btn-dark">등록하기</button>
             <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
         </div>
     </div>
