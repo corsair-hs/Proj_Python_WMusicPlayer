@@ -1,5 +1,6 @@
 $(document).ready(function () {
     hidebtnMusicInsert();
+    hideMyMovie()
 });
 
 function mytitleEdit() {
@@ -59,4 +60,32 @@ function open_box() {
 
 function close_box() {
     $('#post-box').hide()
+}
+
+function showMyMovie() {
+    $('#mymovie').show();
+}
+
+function hideMyMovie() {
+    $('#mymovie').hide();
+}
+
+function youtubePlay(value) {
+    const EMBED = 'https://www.youtube.com/embed/'
+    const ytbId = value;
+    const ytbUrl = EMBED + ytbId;
+    $('#mymovie iframe').attr('src', ytbUrl); // iframe의 src 속성 값에 동영상 URL 할당
+    showMyMovie()
+}
+
+function imgClickMoviePlay(button) {
+    var ytbId = $(button).siblings(".card-body").find(".ytbId").text();
+    // console.log(ytbId);
+    youtubePlay(ytbId);
+}
+
+function h5ClickMoviePlay(button) {
+    var ytbId = $(button).siblings('p.card-text.ytbId').text();
+    // console.log(ytbId);
+    youtubePlay(ytbId);
 }

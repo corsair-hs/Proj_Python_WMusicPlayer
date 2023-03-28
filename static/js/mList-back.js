@@ -15,10 +15,9 @@ function mList_select(imgValue) {
             if (weather === _imgValue) {
                 let temp_html = `<div class="col">
                                         <div class="card h-100">
-                                            <img src="${thumb}"
-                                                class="card-img-top">
+                                            <img src="${thumb}" class="card-img-top tgPointer1" onclick="imgClickMoviePlay(this)">
                                             <div class="card-body">
-                                                <h5 class="card-title">${title}</h5>
+                                                <h5 class="card-title tgPointer2" onclick="h5ClickMoviePlay(this)">${title}</h5>
                                                 <p class="card-text">${desc}</p>
                                                 <p class="card-text ytbId">${ytbId}</p>
                                                 <p class="mycomment">${name}</p>

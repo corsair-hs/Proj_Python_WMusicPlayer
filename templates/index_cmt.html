@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Weather Music List" />
+    <meta property="og:description" content="당신의 마음 속 날씨에 맞는 음악을 추천해드려요." />
+    <meta property="og:image" content="" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <link href="../static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/mCmt.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/mList.css" rel="stylesheet" type="text/css">
+
+    <script src="../static/js/mList-front.js"></script>
+    <script src="../static/js/mList-back.js"></script>
+    <script src="../static/js/mCmt-front.js"></script>
+    <script src="../static/js/mCmt-back.js"></script>
+
+    <title>Weather Music - Comment</title>
+
+    <style>
+
+        .mypic {
+            width: 100%;
+            height: 100px;
+
+            background-image: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)),
+                url("https://wallpaperaccess.com/full/123650.jpg");
+            background-position: center 30%;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mCmt_youtube_wrap {
+            width: 100%;
+            height: 500px;
+
+            background-color: black;
+            background-position: center 30%;
+            background-size: cover;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    <div class="mypic">
+        <h1>음악 Playlist</h1>
+    </div>
+    <div class="mCmt_youtube_wrap">
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/3D3_zN_XHNk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="mCmt_mypost">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nick" placeholder="url" />
+            <label for="floatingInput">닉네임</label>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">코멘트</label>
+        </div>
+        <label id="nickOld"></label><label id="commentOld"></label>
+        <button onclick="mCmt_insert()" type="button" id="btnCommentSave" class="btn btn-dark">코멘트 남기기</button>
+        <button onclick="mCmt_update()" type="button" id="btnCommentUpdate" class="btn btn-dark">코멘트 수정하기</button>
+    </div>
+    <div class="mycards" id="comment-list">
+    </div>
+
+    </div>
+    </div>
+</body>
+
+</html>

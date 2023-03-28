@@ -42,3 +42,20 @@
     margin: 0;
     padding: 0;
 }
+
+.tgPointer1:hover {
+    cursor: pointer;
+}
+.tgPointer2:hover {
+    cursor: pointer;
+}
+
+#mymovie {
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}

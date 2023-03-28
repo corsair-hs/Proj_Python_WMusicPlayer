@@ -1,0 +1,49 @@
+.mCmt_mypost {
+    width: 95%;
+    max-width: 800px;
+    margin: 20px auto 20px auto;
+
+    box-shadow: 0px 0px 3px 0px black;
+    padding: 20px;
+
+    text-align: right;
+}
+
+.mCmt_mypost>button {
+    margin-top: 15px;
+}
+
+.mycards {
+    width: 95%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.mycards>.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#nickOld,
+#commentOld {
+    visibility: hidden;
+}
+
+blockquote.blockquote > div {
+    width: 100%;
+    color: green;
+    text-align: right;
+}
+
+
+
+/* 눈 내리는 효과 */
+@keyframes falling {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
