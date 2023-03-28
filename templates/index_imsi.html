@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Weather Music List" />
+    <meta property="og:description" content="당신의 마음 속 날씨에 맞는 음악을 추천해드려요." />
+    <meta property="og:image" content="" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    
+    <title>Weather Music - index</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        .totalWrap {
+            width: 100vw;
+            height: 100vh;
+            background-color: green;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)),
+                url("https://i.pinimg.com/originals/b5/f5/ac/b5f5aca4c3958e2b8a3424ed11bb2dff.jpg");
+            background-position: center 30%;
+            background-size: cover;
+        }
+        .cus-hr {
+            border: solid 1px black;
+        }
+        .cus-select {
+            width: 250px;
+        }
+    </style>
+
+    <script>
+
+    </script>
+</head>
+<body>
+    <div class="totalWrap">
+        <p class="text-light">당신 마음 속 날씨는 어떠한가요?</p>
+        <hr class="border border-secondary-emphasis border-1 opacity-75 w-50">
+        <select class="form-select cus-select mt-3" aria-label="Default select example">
+            <option selected>맑음</option>
+            <option value="1">흐림</option>
+            <option value="2">비</option>
+            <option value="3">눈</option>
+          </select>
+    </div>
+</body>
+</html>
