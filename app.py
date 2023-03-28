@@ -4,12 +4,12 @@ app = Flask(__name__)
 import requests
 from bs4 import BeautifulSoup
 
-# HS mongoDB atlas address
+# 김현수 mongoDB atlas address
 from pymongo import MongoClient
 client = MongoClient('mongodb+srv://sparta:test@cluster0.sd02bon.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbsparta
 
-# YJ mongoDB atlas address
+# 김연주 mongoDB atlas address
 # from pymongo import MongoClient
 # client = MongoClient('mongodb+srv://sparta:test@cluster0.wkoueb2.mongodb.net/?retryWrites=true&w=majority')
 # db = client.dbsparta
