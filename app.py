@@ -77,12 +77,12 @@ def mList_selete():
 # music comment insert - POST Request
 @app.route("/mCmt_insert_POST", methods=["POST"])
 def mCmt_insert():
-    # ytdId_receive = request.form['ytbId_give']
+    ytbId_receive = request.form['ytbId_give']
     nick_receive = request.form['nick_give']
     comment_receive = request.form['comment_give']
     
     doc = {
-        # 'ytdId' : ytdId_receive,
+        'ytbId' : ytbId_receive,
         'nick' : nick_receive,
         'comment' : comment_receive
     }

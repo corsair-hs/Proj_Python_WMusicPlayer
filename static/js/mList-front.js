@@ -23,6 +23,7 @@ function sunnyClick() {
     $('#imgSunny').css('content', "url('../static/src/img/color-sunny.png')");
     mList_select('sunny');
     $('#weatherLabel').text('sunny');
+    hideMyMovie();
 }
 function cloudyClick() {
     mytitleEdit();
@@ -30,6 +31,7 @@ function cloudyClick() {
     $('#imgCloudy').css('content', "url('../static/src/img/color-cloudy.png')");
     mList_select('cloudy');
     $('#weatherLabel').text('cloudy');
+    hideMyMovie();
 }
 function rainyClick() {
     mytitleEdit();
@@ -37,6 +39,7 @@ function rainyClick() {
     $('#imgRainy').css('content', "url('../static/src/img/color-rainy.png')");
     mList_select('rainy');
     $('#weatherLabel').text('rainy');
+    hideMyMovie();
 }
 function snowClick() {
     mytitleEdit();
@@ -44,6 +47,7 @@ function snowClick() {
     $('#imgSnow').css('content', "url('../static/src/img/color-snow.png')");
     mList_select('snow');
     $('#weatherLabel').text('snow');
+    hideMyMovie();
 }
 
 function showbtnMusicInsert() {
@@ -75,7 +79,10 @@ function youtubePlay(value) {
     const ytbId = value;
     const ytbUrl = EMBED + ytbId;
     $('#mymovie iframe').attr('src', ytbUrl); // iframe의 src 속성 값에 동영상 URL 할당
+    $('#ytbIdLabel').text(ytbId);
     showMyMovie()
+    close_box()
+    mCmt_select()
 }
 
 function imgClickMoviePlay(button) {
