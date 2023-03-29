@@ -26,6 +26,7 @@ function mCmt_select() {
     fetch('/mCmt_select_GET').then((res) => res.json()).then((data) => {
         let rows = data['result']
         $("#comment-list").empty()
+
         rows.forEach((a) => {
             let ytbId = a['ytbId']
             let nick = a['nick']

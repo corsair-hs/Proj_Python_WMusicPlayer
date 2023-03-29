@@ -68,10 +68,16 @@ function close_box() {
 
 function showMyMovie() {
     $('#mymovie').show();
+    $('#nick').val('');
+    $('#comment').val('');
 }
 
 function hideMyMovie() {
     $('#mymovie').hide();
+    show_btn_comment_save();
+    hide_btn_comment_update();
+    $('#nick').val('');
+    $('#comment').val('');
 }
 
 function youtubePlay(value) {
