@@ -36,13 +36,3 @@ blockquote.blockquote > div {
 
 
 
-/* 눈 내리는 효과 */
-@keyframes falling {
-    0% {
-        transform: translateY(-50px) rotate(0deg);
-    }
-
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-    }
-}
