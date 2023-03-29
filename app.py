@@ -5,8 +5,10 @@ import requests
 from bs4 import BeautifulSoup
 
 # 김현수 mongoDB atlas address
+import certifi
+ca = certifi.where()
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://sparta:test@cluster0.sd02bon.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://sparta:test@cluster0.sd02bon.mongodb.net/?retryWrites=true&w=majority',tlsCAFile=ca)
 db = client.dbsparta
 
 # 김연주 mongoDB atlas address
@@ -69,6 +71,33 @@ def mList_delete():
 def mList_selete():
     music_data = list(db.musicList.find({},{'_id':False}))
     return jsonify({'result': music_data})
+
+# music List update - GET Request
+@app.route("/mList_update_POST", methods=["POST"])
+def mList_update():
+    # ytbId_receive = request.form['ytbId_give']
+    weather_receive = request.form['weather_give']
+    name_receive = request.form['name_give']
+    desc_receive = request.form['desc_give']
+    nameNew_receive = request.form['nameNew_give']
+    descNew_receive = request.form['descNew_give']
+
+    docOld = {
+        'weather' : weather_receive,
+        'name' : name_receive,
+        'desc' : desc_receive
+    }
+
+    docNew = { "$set" : {
+        'weather' : weather_receive,
+        'name' : nameNew_receive,
+        'desc' : descNew_receive
+        }
+    }
+
+    # 수정하기
+    db.musicList.update_one(docOld, docNew)
+    return jsonify({'msg': '수정 완료!'})
 
 # ----------------------------------------------------------------------
 # Commet Area

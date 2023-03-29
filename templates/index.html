@@ -51,7 +51,7 @@
             <input id="name" type="text" class="form-control" placeholder="">
             <label>등록자</label>
         </div>
-        <div class="form-floating mb-3">
+        <div id = "musicUrl_box" class="form-floating mb-3">
             <input id="url" type="text" class="form-control" placeholder="">
             <label>음악URL</label>
         </div>
@@ -62,10 +62,13 @@
 
         <label id="weatherLabel"></label>
         <div class="mybtns">
-            <button onclick="mList_insert()" type="button" class="btn btn-dark">등록하기</button>
-            <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+            <label id="nameOldLabel"></label><label id="descOldLabel"></label><label id="weatherOldLabel"></label>
+            <button onclick="mList_insert()" id="btnListSave" type="button" class="btn btn-dark">등록하기</button>
+            <button onclick="mList_update()" id="btnListUpdate" type="button" class="btn btn-dark">수정하기</button>
+            <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>            
         </div>
     </div>
+
     <div id="mymovie">
         <iframe width="800" height="450" src="" title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

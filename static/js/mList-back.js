@@ -73,3 +73,68 @@ function mList_insert() {
         mList_select(weather)
     });
 }
+
+function update_music(button) {
+    let row = $(button).closest('div.card-body')
+    let nameOld = row.find('p:eq(2)').text()
+    let descOld = row.find('p:eq(0)').text()
+    
+    a = descOld.split('')
+    b = []
+    for (i=0; i<a.length; i++){
+        if (a[i]=='#'){
+        } else {
+            b.push(a[i])
+        }
+    }
+    descBack = b.join('')
+
+    $('#nameOld').text(nameOld)
+    $('#descBack').text(descBack)
+    $('#name').val(nameOld)
+    $('#desc').val(descBack)
+
+    $('#nameOldLabel').text(nameOld)
+    $('#descOldLabel').text(descOld)
+
+    // console.log(nameOld, descBack)
+
+
+    $('#post-box').show()
+    $('#btnListUpdate').show()
+    $('#btnListSave').hide()
+    $('#musicUrl_box').hide()
+}
+
+function mList_update(button) {
+    // 1. fetch해서 이전 데이터를 받아온다.
+    // 2. response값에서 youtubeId값을 가져온다.
+    // 3. 아이디 값을 post의 req로 같이 넘겨준다
+    // 4. db에서 아이디 값을 비교해서 수정해준다.
+
+    let _nameOld = $('#nameOldLabel').text();
+    let _descOld = $('#descOldLabel').text();
+    let nameNew = $('#name').val();
+    let descNew = $('#desc').val();
+    let weather = $("#weatherLabel").text();
+    // console.log(_nameOld, _descOld, nameNew, descNew, weather)
+
+    let arrDesc = descNew.split(' ');  
+    let descResult = arrDesc.map((value) => {return '#'+value})
+    let descResultStr = descResult.join('');
+
+    let formData = new FormData();
+    formData.append("weather_give", weather);
+    formData.append("name_give", _nameOld);
+    formData.append("desc_give", _descOld);
+    formData.append("nameNew_give", nameNew);
+    formData.append("descNew_give", descResultStr);
+
+
+    fetch('/mList_update_POST', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+        alert(data["msg"]);
+        $('#name').val('');
+        $('#desc').val('');
+        mList_select(weather);
+    });
+}

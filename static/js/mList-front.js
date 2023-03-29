@@ -60,6 +60,9 @@ function hidebtnMusicInsert() {
 
 function open_box() {
     $('#post-box').show()
+    $('#btnListUpdate').hide()
+    $('#btnListSave').show()
+    $('musicUrl_box').show()
 }
 
 function close_box() {
