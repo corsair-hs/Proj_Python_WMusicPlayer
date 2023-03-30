@@ -1,0 +1,38 @@
+.mCmt_mypost {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto 20px auto;
+
+    box-shadow: 0px 0px 3px 0px black;
+    padding: 20px 0;
+
+    text-align: right;
+}
+
+.mCmt_mypost>button {
+    margin-top: 15px;
+}
+
+.mycards {
+    width: 95%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.mycards>.card {
+    margin: 10px 0;
+}
+
+#nickOld,
+#commentOld {
+    visibility: hidden;
+}
+
+blockquote.blockquote > div {
+    width: 100%;
+    color: green;
+    text-align: right;
+}
+
+
+

@@ -1,0 +1,62 @@
+
+#weatherLabel,
+#ytbIdLabel {
+    visibility: hidden;
+}
+
+.mycomment {
+    color: gray;
+}
+
+.mycardsList {
+    margin: 20px auto;
+    width: 95%;
+    max-width: 1200px;
+}
+
+.mypost {
+    width: 95%;
+    max-width: 500px;
+    margin: 20px auto 20px auto;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 0px gray;
+
+    display: none;
+}
+
+.mybtns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+.mybtns>button {
+    margin-right: 10px;
+}
+
+.ytbId {
+    visibility: hidden;
+    font-size: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.tgPointer1:hover {
+    cursor: pointer;
+}
+.tgPointer2:hover {
+    cursor: pointer;
+}
+
+#mymovie {
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
