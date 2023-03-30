@@ -34,6 +34,7 @@
 </head>
 
 <body>
+    <!-- 헤더 부분 -->
     <div class="mytitle">
         <p id="weatherQuestion" class="text-light">당신 마음 속 날씨는 어떠한가요?</p>
         <div id="weatherWrap">
@@ -43,9 +44,10 @@
             <img src="../static/src/img/gray-snow.png" id="imgSnow" onclick="snowClick()" value="snow">
         </div>
         <div id="weatherBottom"></div>
-        <!-- <h1>{맑은} 날씨에 듣기 좋은 음악들</h1> -->
         <button onclick="open_box()" id="btnMusicInsert">음악 등록하기</button>
     </div>
+
+    <!-- 음악 등록하는 부분 -->
     <div class="mypost" id="post-box">
         <div class="form-floating mb-3">
             <input id="name" type="text" class="form-control" placeholder="">
@@ -66,6 +68,8 @@
             <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
         </div>
     </div>
+
+    <!-- 유튜브 영상 & 코맨트 부분 -->
     <div id="mymovie">
         <iframe width="800" height="450" src="" title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -84,7 +88,8 @@
                     style="height: 100px"></textarea>
                 <label for="floatingTextarea2">코멘트</label>
             </div>
-            <label id="nickOld"></label><label id="commentOld"></label>
+            <label id="nickOld"></label>
+            <label id="commentOld"></label>
             <button onclick="mCmt_insert()" type="button" id="btnCommentSave" class="btn btn-dark">코멘트 남기기</button>
             <button onclick="mCmt_update()" type="button" id="btnCommentUpdate" class="btn btn-dark">코멘트 수정하기</button>
         </div>
@@ -94,6 +99,8 @@
             <button onclick="hideMyMovie()" type="button" class="btn btn-dark">닫기</button>
         </div>
     </div>
+
+    <!-- 음악 리스트 부분 -->
     <div class="mycardsList">
         <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
         </div>
