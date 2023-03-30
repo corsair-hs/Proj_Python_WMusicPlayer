@@ -145,5 +145,6 @@ function mList_update(button) {
         $('#name').val('');
         $('#desc').val('');
         mList_select(weather);
+        $('#post-box').hide();
     });
 }
