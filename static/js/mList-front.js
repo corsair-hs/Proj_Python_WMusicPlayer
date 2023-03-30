@@ -62,7 +62,11 @@ function open_box() {
     $('#post-box').show()
     $('#btnListUpdate').hide()
     $('#btnListSave').show()
-    $('musicUrl_box').show()
+    $('#musicUrl_box').show()
+    $('#nameOldLabel').hide()
+    $('#descOldLabel').hide()
+    $('#name').val('')
+    $('#desc').val('')
 }
 
 function close_box() {

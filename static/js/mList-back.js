@@ -80,13 +80,18 @@ function update_music(button) {
     let descOld = row.find('p:eq(0)').text()
     
     a = descOld.split('')
+
+    console.log(a)
     b = []
     for (i=0; i<a.length; i++){
         if (a[i]=='#'){
-        } else {
+            b.push(' ')
+        }   else {
             b.push(a[i])
         }
     }
+    b.shift()
+    console.log(b)
     descBack = b.join('')
 
     $('#nameOld').text(nameOld)
@@ -104,6 +109,8 @@ function update_music(button) {
     $('#btnListUpdate').show()
     $('#btnListSave').hide()
     $('#musicUrl_box').hide()
+    $('#nameOldLabel').hide()
+    $('#descOldLabel').hide()
 }
 
 function mList_update(button) {
@@ -122,6 +129,8 @@ function mList_update(button) {
     let arrDesc = descNew.split(' ');  
     let descResult = arrDesc.map((value) => {return '#'+value})
     let descResultStr = descResult.join('');
+
+    console.log(descResultStr)
 
     let formData = new FormData();
     formData.append("weather_give", weather);
